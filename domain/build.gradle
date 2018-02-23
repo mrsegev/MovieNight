@@ -1,0 +1,14 @@
+apply plugin: 'kotlin'
+targetCompatibility = 1.8
+sourceCompatibility = 1.8
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation rootProject.ext.rxJava
+    testImplementation rootProject.ext.junit
+    testImplementation rootProject.ext.mockito
+}
+repositories {
+    mavenCentral()
+}

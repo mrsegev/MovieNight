@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="small_text_size">12sp</dimen>
+    <dimen name="general_text_size">16sp</dimen>
+    <dimen name="title_text_size">34sp</dimen>
+    <dimen name="headline_text_size">24sp</dimen>
+
+    <dimen name="generic_margin">16dp</dimen>
+    <dimen name="sections_margin">28dp</dimen>
+    <dimen name="small_margin">8dp</dimen>
+</resources>

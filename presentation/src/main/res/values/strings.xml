@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">MovieNight</string>
+    <string name="api_base_url">https://api.themoviedb.org/3/</string>
+    <string name="transition_poster">poster_transition</string>
+    <string name="transition_title">title_transition</string>
+    <string name="release_date_template">Released: %s</string>
+    <string name="my_favorites">My Favorites</string>
+    <string name="popular">Popular</string>
+    <string name="trailers">Trailers</string>
+    <string name="overview">Overview</string>
+    <string name="reviews">Reviews</string>
+    <string name="favorites_empty_message">Nothing here\n(…yet!)</string>
+    <string name="search_no_results_message">No results for\n%s</string>
+    <string name="n_a">N/A</string>
+    <string name="search">Search</string>
+    <string name="type_here_to_begin_your_search">Type here to begin your search...</string>
+</resources>
