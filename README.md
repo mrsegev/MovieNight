@@ -3,6 +3,8 @@
 ### Summary: ###
 MovieNight is a sample Android application that uses the clean architecture approach and is written in Kotlin.
 
+P.S: [I've written a blog post about this project.](https://goo.gl/KoVEh5)
+
 ![Screenshots](https://github.com/mrsegev/MovieNight/blob/master/screenshots/screens.jpg)
 
 ### The Motivation behind the app: ###
