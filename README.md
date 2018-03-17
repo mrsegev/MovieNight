@@ -22,7 +22,7 @@ Register (its free) and grab your API key,
 then paste it inside: `.../res/values/api_key.xml`
 
 ### //TODO: ###
-- Few fixes and teaks
+- Few fixes and tweaks
 - Add UI tests
 - Maybe expand the app functionality
 
