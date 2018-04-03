@@ -1,4 +1,4 @@
-package com.yossisegev.domain
+package com.yossisegev.domain.common
 
 import com.yossisegev.domain.entities.Optional
 import io.reactivex.Observable

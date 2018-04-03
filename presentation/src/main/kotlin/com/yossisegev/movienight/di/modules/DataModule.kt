@@ -2,12 +2,9 @@ package com.yossisegev.movienight.di.modules
 
 import android.arch.persistence.room.Room
 import android.content.Context
-import android.graphics.Movie
 import com.yossisegev.data.api.Api
 import com.yossisegev.data.db.MoviesDatabase
 import com.yossisegev.data.db.RoomFavoritesMovieCache
-import com.yossisegev.data.entities.DetailsData
-import com.yossisegev.data.entities.MovieData
 import com.yossisegev.data.mappers.DetailsDataMovieEntityMapper
 import com.yossisegev.data.mappers.MovieDataEntityMapper
 import com.yossisegev.data.mappers.MovieEntityDataMapper
@@ -15,11 +12,9 @@ import com.yossisegev.data.repositories.MemoryMoviesCache
 import com.yossisegev.data.repositories.CachedMoviesDataStore
 import com.yossisegev.data.repositories.MoviesRepositoryImpl
 import com.yossisegev.data.repositories.RemoteMoviesDataStore
-import com.yossisegev.domain.Mapper
 import com.yossisegev.domain.MoviesCache
 import com.yossisegev.domain.MoviesDataStore
 import com.yossisegev.domain.MoviesRepository
-import com.yossisegev.domain.entities.MovieEntity
 import com.yossisegev.movienight.di.DI
 import dagger.Module
 import dagger.Provides

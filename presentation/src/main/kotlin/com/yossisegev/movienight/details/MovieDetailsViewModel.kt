@@ -1,7 +1,7 @@
 package com.yossisegev.movienight.details
 
 import android.arch.lifecycle.MutableLiveData
-import com.yossisegev.domain.Mapper
+import com.yossisegev.domain.common.Mapper
 import com.yossisegev.domain.entities.MovieEntity
 import com.yossisegev.domain.usecases.CheckFavoriteStatus
 import com.yossisegev.domain.usecases.GetMovieDetails
