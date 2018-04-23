@@ -2,15 +2,12 @@ package com.yossisegev.movienight
 
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
-
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
-import android.view.SearchEvent
-import com.yossisegev.movienight.common.App
 import com.yossisegev.movienight.favorites.FavoriteMoviesFragment
 import com.yossisegev.movienight.popularmovies.PopularMoviesFragment
 import com.yossisegev.movienight.search.SearchFragment
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.bottomNavigationView
 
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
 

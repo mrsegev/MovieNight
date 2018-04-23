@@ -1,7 +1,6 @@
 package com.yossisegev.movienight
 
 import com.yossisegev.domain.Mapper
-import com.yossisegev.domain.entities.Genre
 import com.yossisegev.domain.entities.MovieEntity
 import com.yossisegev.domain.entities.Review
 import com.yossisegev.movienight.entities.Movie

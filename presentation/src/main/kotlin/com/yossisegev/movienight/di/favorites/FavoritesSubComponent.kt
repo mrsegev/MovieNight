@@ -1,6 +1,5 @@
 package com.yossisegev.movienight.di.favorites
 
-import com.yossisegev.movienight.details.MovieDetailsActivity
 import com.yossisegev.movienight.favorites.FavoriteMoviesFragment
 import dagger.Subcomponent
 

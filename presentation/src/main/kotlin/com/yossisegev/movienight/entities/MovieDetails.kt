@@ -1,6 +1,5 @@
 package com.yossisegev.movienight.entities
 
-import com.yossisegev.domain.entities.Genre
 import com.yossisegev.domain.entities.Review
 
 /**
