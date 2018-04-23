@@ -1,7 +1,5 @@
 package com.yossisegev.movienight.common
 
-import android.graphics.Bitmap
-import android.widget.EdgeEffect
 import android.widget.ImageView
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso

@@ -4,7 +4,6 @@ import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
 import android.os.Bundle
-import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.text.Editable
@@ -25,7 +24,10 @@ import com.yossisegev.movienight.common.ImageLoader
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.subjects.PublishSubject
-import kotlinx.android.synthetic.main.fragment_search_movies.*
+import kotlinx.android.synthetic.main.fragment_search_movies.search_movies_edit_text
+import kotlinx.android.synthetic.main.fragment_search_movies.search_movies_no_results_message
+import kotlinx.android.synthetic.main.fragment_search_movies.search_movies_progress
+import kotlinx.android.synthetic.main.fragment_search_movies.search_movies_recyclerview
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 

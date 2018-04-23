@@ -4,13 +4,11 @@ import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
 import com.yossisegev.domain.Mapper
 import com.yossisegev.domain.entities.MovieEntity
-import com.yossisegev.domain.entities.Optional
 import com.yossisegev.domain.usecases.CheckFavoriteStatus
 import com.yossisegev.domain.usecases.GetMovieDetails
 import com.yossisegev.domain.usecases.RemoveFavoriteMovie
 import com.yossisegev.domain.usecases.SaveFavoriteMovie
 import com.yossisegev.movienight.entities.Movie
-import io.reactivex.ObservableTransformer
 
 /**
  * Created by Yossi Segev on 07/01/2018.

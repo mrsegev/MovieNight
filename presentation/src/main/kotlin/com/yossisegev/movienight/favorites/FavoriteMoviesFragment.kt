@@ -3,7 +3,6 @@ package com.yossisegev.movienight.favorites
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -16,7 +15,9 @@ import com.yossisegev.movienight.R
 import com.yossisegev.movienight.common.App
 import com.yossisegev.movienight.common.BaseFragment
 import com.yossisegev.movienight.common.ImageLoader
-import kotlinx.android.synthetic.main.fragment_favorite_movies.*
+import kotlinx.android.synthetic.main.fragment_favorite_movies.favorite_movies_empty_message
+import kotlinx.android.synthetic.main.fragment_favorite_movies.favorite_movies_progress
+import kotlinx.android.synthetic.main.fragment_favorite_movies.favorite_movies_recyclerview
 import javax.inject.Inject
 
 /**
