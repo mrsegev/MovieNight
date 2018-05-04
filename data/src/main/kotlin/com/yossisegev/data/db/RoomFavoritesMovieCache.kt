@@ -45,8 +45,8 @@ class RoomFavoritesMovieCache(database: MoviesDatabase,
         }
     }
 
-    override fun isEmpty(): Boolean {
-        return dao.getFavorites().isEmpty()
+    override fun isEmpty(): Observable<Boolean> {
+        return Observable.fromCallable { dao.getFavorites().isEmpty() }
     }
 
     override fun search(query: String): Observable<List<MovieEntity>> {

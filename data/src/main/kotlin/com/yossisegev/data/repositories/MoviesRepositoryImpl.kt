@@ -29,10 +29,14 @@ class MoviesRepositoryImpl(api: Api,
     }
 
     override fun getMovies(): Observable<List<MovieEntity>> {
-        return if (!cache.isEmpty()) {
-            return memoryDataStore.getMovies()
-        } else {
-            remoteDataStore.getMovies().doOnNext { cache.saveAll(it) }
+
+        return cache.isEmpty().flatMap { empty ->
+            if (!empty) {
+                return@flatMap memoryDataStore.getMovies()
+            }
+            else {
+                return@flatMap remoteDataStore.getMovies().doOnNext { cache.saveAll(it) }
+            }
         }
     }
 
