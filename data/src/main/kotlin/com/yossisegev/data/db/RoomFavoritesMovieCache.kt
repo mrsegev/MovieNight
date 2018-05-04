@@ -1,7 +1,7 @@
 package com.yossisegev.data.db
 
 import com.yossisegev.data.entities.MovieData
-import com.yossisegev.domain.Mapper
+import com.yossisegev.domain.common.Mapper
 import com.yossisegev.domain.MoviesCache
 import com.yossisegev.domain.entities.MovieEntity
 import com.yossisegev.domain.entities.Optional
@@ -45,8 +45,8 @@ class RoomFavoritesMovieCache(database: MoviesDatabase,
         }
     }
 
-    override fun isEmpty(): Boolean {
-        return dao.getFavorites().isEmpty()
+    override fun isEmpty(): Observable<Boolean> {
+        return Observable.fromCallable { dao.getFavorites().isEmpty() }
     }
 
     override fun search(query: String): Observable<List<MovieEntity>> {

@@ -2,7 +2,7 @@ package com.yossisegev.movienight.search
 
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
-import com.yossisegev.domain.Mapper
+import com.yossisegev.domain.common.Mapper
 import com.yossisegev.domain.entities.MovieEntity
 import com.yossisegev.domain.usecases.SearchMovie
 import com.yossisegev.movienight.entities.Movie

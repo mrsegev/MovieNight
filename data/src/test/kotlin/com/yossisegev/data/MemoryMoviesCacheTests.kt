@@ -65,8 +65,8 @@ class MemoryMoviesCacheTests {
 
     @Test
     fun testIsEmptyReturnsExpectedResult() {
-        assertTrue(memoryMoviesCache.isEmpty())
+        memoryMoviesCache.isEmpty().test().assertValue{ value -> value }
         memoryMoviesCache.saveAll(generateMovieEntityList())
-        assertFalse(memoryMoviesCache.isEmpty())
+        memoryMoviesCache.isEmpty().test().assertValue{ value -> !value }
     }
 }
