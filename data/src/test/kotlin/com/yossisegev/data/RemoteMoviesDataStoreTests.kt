@@ -19,18 +19,13 @@ import org.mockito.Mockito.mock
 @Suppress("IllegalIdentifier")
 class RemoteMoviesDataStoreTests {
 
-    private val movieDataMovieEntityMapper = MovieDataEntityMapper()
-    private val detailsDataMovieEntityMapper = DetailsDataMovieEntityMapper()
     private lateinit var api: Api
     private lateinit var remoteMoviesDataStore: RemoteMoviesDataStore
 
     @Before
     fun before() {
         api = mock(Api::class.java)
-        remoteMoviesDataStore = RemoteMoviesDataStore(
-                api,
-                movieDataMovieEntityMapper,
-                detailsDataMovieEntityMapper)
+        remoteMoviesDataStore = RemoteMoviesDataStore(api)
     }
 
     @Test

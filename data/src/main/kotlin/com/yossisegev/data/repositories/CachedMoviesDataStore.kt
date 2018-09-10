@@ -23,4 +23,11 @@ class CachedMoviesDataStore(private val moviesCache: MoviesCache): MoviesDataSto
         return moviesCache.getAll()
     }
 
+    fun isEmpty(): Observable<Boolean> {
+        return moviesCache.isEmpty()
+    }
+
+    fun saveAll(movieEntities: List<MovieEntity>) {
+        moviesCache.saveAll(movieEntities)
+    }
 }
