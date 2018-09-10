@@ -15,17 +15,15 @@ import io.reactivex.Observable
  * Created by Yossi Segev on 25/01/2018.
  */
 
-class MoviesRepositoryImpl(api: Api,
-                           private val cache: MoviesCache,
-                           movieDataMapper: Mapper<MovieData, MovieEntity>,
-                           detailedDataMapper: Mapper<DetailsData, MovieEntity>) : MoviesRepository {
+class MoviesRepositoryImpl(val api: Api,
+                           private val cache: MoviesCache) : MoviesRepository {
 
     private val memoryDataStore: MoviesDataStore
     private val remoteDataStore: MoviesDataStore
 
     init {
         memoryDataStore = CachedMoviesDataStore(cache)
-        remoteDataStore = RemoteMoviesDataStore(api, movieDataMapper, detailedDataMapper)
+        remoteDataStore = RemoteMoviesDataStore(api)
     }
 
     override fun getMovies(): Observable<List<MovieEntity>> {

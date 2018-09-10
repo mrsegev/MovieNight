@@ -8,10 +8,7 @@ import com.yossisegev.data.db.RoomFavoritesMovieCache
 import com.yossisegev.data.mappers.DetailsDataMovieEntityMapper
 import com.yossisegev.data.mappers.MovieDataEntityMapper
 import com.yossisegev.data.mappers.MovieEntityDataMapper
-import com.yossisegev.data.repositories.MemoryMoviesCache
-import com.yossisegev.data.repositories.CachedMoviesDataStore
-import com.yossisegev.data.repositories.MoviesRepositoryImpl
-import com.yossisegev.data.repositories.RemoteMoviesDataStore
+import com.yossisegev.data.repositories.*
 import com.yossisegev.domain.MoviesCache
 import com.yossisegev.domain.MoviesDataStore
 import com.yossisegev.domain.MoviesRepository
@@ -40,11 +37,11 @@ class DataModule {
     @Provides
     @Singleton
     fun provideMovieRepository(api: Api,
-                               @Named(DI.inMemoryCache) cache: MoviesCache,
-                               movieDataMapper: MovieDataEntityMapper,
-                               detailedDataMapper: DetailsDataMovieEntityMapper): MoviesRepository {
+                               @Named(DI.inMemoryCache) cache: MoviesCache): MoviesRepository {
 
-        return MoviesRepositoryImpl(api, cache, movieDataMapper, detailedDataMapper)
+        val cachedMoviesDataStore = CachedMoviesDataStore(cache)
+        val remoteMoviesDataStore = RemoteMoviesDataStore(api)
+        return MoviesRepositoryImpl2(cachedMoviesDataStore, remoteMoviesDataStore)
     }
 
     @Singleton
@@ -63,17 +60,17 @@ class DataModule {
         return RoomFavoritesMovieCache(moviesDatabase, entityDataMapper, dataEntityMapper)
     }
 
-    @Singleton
-    @Provides
-    @Named(DI.remoteDataStore)
-    fun provideRemoteMovieDataStore(api: Api, movieDataMapper: MovieDataEntityMapper, detailedDataMapper: DetailsDataMovieEntityMapper): MoviesDataStore {
-        return RemoteMoviesDataStore(api, movieDataMapper, detailedDataMapper)
-    }
+//    @Singleton
+//    @Provides
+//    @Named(DI.remoteDataStore)
+//    fun provideRemoteMovieDataStore(api: Api, movieDataMapper: MovieDataEntityMapper, detailedDataMapper: DetailsDataMovieEntityMapper): MoviesDataStore {
+//        return RemoteMoviesDataStore(api, movieDataMapper, detailedDataMapper)
+//    }
 
-    @Singleton
-    @Provides
-    @Named(DI.cachedDataStore)
-    fun provideCachedMoviesDataStore(moviesCache: MoviesCache): MoviesDataStore {
-        return CachedMoviesDataStore(moviesCache)
-    }
+//    @Singleton
+//    @Provides
+//    @Named(DI.cachedDataStore)
+//    fun provideCachedMoviesDataStore(moviesCache: MoviesCache): MoviesDataStore {
+//        return CachedMoviesDataStore(moviesCache)
+//    }
 }
