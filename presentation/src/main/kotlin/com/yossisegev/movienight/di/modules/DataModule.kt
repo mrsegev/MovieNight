@@ -5,12 +5,10 @@ import android.content.Context
 import com.yossisegev.data.api.Api
 import com.yossisegev.data.db.MoviesDatabase
 import com.yossisegev.data.db.RoomFavoritesMovieCache
-import com.yossisegev.data.mappers.DetailsDataMovieEntityMapper
 import com.yossisegev.data.mappers.MovieDataEntityMapper
 import com.yossisegev.data.mappers.MovieEntityDataMapper
 import com.yossisegev.data.repositories.*
 import com.yossisegev.domain.MoviesCache
-import com.yossisegev.domain.MoviesDataStore
 import com.yossisegev.domain.MoviesRepository
 import com.yossisegev.movienight.di.DI
 import dagger.Module
@@ -41,7 +39,7 @@ class DataModule {
 
         val cachedMoviesDataStore = CachedMoviesDataStore(cache)
         val remoteMoviesDataStore = RemoteMoviesDataStore(api)
-        return MoviesRepositoryImpl2(cachedMoviesDataStore, remoteMoviesDataStore)
+        return MoviesRepositoryImpl(cachedMoviesDataStore, remoteMoviesDataStore)
     }
 
     @Singleton
@@ -59,18 +57,4 @@ class DataModule {
                                    dataEntityMapper: MovieDataEntityMapper): MoviesCache {
         return RoomFavoritesMovieCache(moviesDatabase, entityDataMapper, dataEntityMapper)
     }
-
-//    @Singleton
-//    @Provides
-//    @Named(DI.remoteDataStore)
-//    fun provideRemoteMovieDataStore(api: Api, movieDataMapper: MovieDataEntityMapper, detailedDataMapper: DetailsDataMovieEntityMapper): MoviesDataStore {
-//        return RemoteMoviesDataStore(api, movieDataMapper, detailedDataMapper)
-//    }
-
-//    @Singleton
-//    @Provides
-//    @Named(DI.cachedDataStore)
-//    fun provideCachedMoviesDataStore(moviesCache: MoviesCache): MoviesDataStore {
-//        return CachedMoviesDataStore(moviesCache)
-//    }
 }

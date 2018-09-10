@@ -3,17 +3,13 @@ package com.yossisegev.data
 import com.yossisegev.data.api.Api
 import com.yossisegev.data.api.MovieListResult
 import com.yossisegev.data.mappers.DetailsDataMovieEntityMapper
-import com.yossisegev.data.mappers.MovieDataEntityMapper
 import com.yossisegev.data.repositories.CachedMoviesDataStore
 import com.yossisegev.data.repositories.MoviesRepositoryImpl
-import com.yossisegev.data.repositories.MoviesRepositoryImpl2
 import com.yossisegev.data.repositories.RemoteMoviesDataStore
 import com.yossisegev.data.utils.TestsUtils
 import com.yossisegev.domain.MoviesRepository
-import com.yossisegev.domain.common.DomainTestUtils
 import com.yossisegev.domain.common.DomainTestUtils.Companion.generateMovieEntityList
 import com.yossisegev.domain.common.TestMoviesCache
-import com.yossisegev.domain.entities.MovieDetailsEntity
 import io.reactivex.Observable
 import org.junit.Before
 import org.junit.Test
@@ -35,7 +31,7 @@ class MovieRepositoryImplTests {
         movieCache = TestMoviesCache()
         val cachedMoviesDataStore = CachedMoviesDataStore(movieCache)
         val remoteMoviesDataStore = RemoteMoviesDataStore(api)
-        movieRepository = MoviesRepositoryImpl2(cachedMoviesDataStore, remoteMoviesDataStore)
+        movieRepository = MoviesRepositoryImpl(cachedMoviesDataStore, remoteMoviesDataStore)
     }
 
     @Test
