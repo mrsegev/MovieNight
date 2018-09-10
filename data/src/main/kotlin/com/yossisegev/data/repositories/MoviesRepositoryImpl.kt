@@ -11,7 +11,7 @@ import io.reactivex.Observable
  */
 
 class MoviesRepositoryImpl(private val cachedDataStore: CachedMoviesDataStore,
-                           private val remoteDataStore: MoviesDataStore) : MoviesRepository {
+                           private val remoteDataStore: RemoteMoviesDataStore) : MoviesRepository {
 
     override fun getMovies(): Observable<List<MovieEntity>> {
 
