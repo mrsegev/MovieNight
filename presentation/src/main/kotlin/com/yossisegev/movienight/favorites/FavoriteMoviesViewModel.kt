@@ -23,7 +23,7 @@ class FavoriteMoviesViewModel(private val getFavoriteMovies: GetFavoriteMovies,
     }
 
     fun getFavorites() {
-        getFavoriteMovies.observable()
+        getFavoriteMovies.createObservable()
                 .flatMap { movieEntityMovieMapper.observable(it) }
                 .subscribe({ movies ->
                     val newViewState = viewState.value?.copy(

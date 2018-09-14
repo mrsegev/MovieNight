@@ -40,7 +40,7 @@ class UseCasesTests {
         val movieRepository = Mockito.mock(MoviesRepository::class.java)
         Mockito.`when`(movieRepository.getMovies()).thenReturn(Observable.just(generateMovieEntityList()))
         val getPopularMovies = GetPopularMovies(TestTransformer(), movieRepository)
-        getPopularMovies.observable().test()
+        getPopularMovies.createObservable().test()
                 .assertValue { results -> results.size == 5 }
                 .assertComplete()
     }
@@ -50,7 +50,7 @@ class UseCasesTests {
         val movieRepository = Mockito.mock(MoviesRepository::class.java)
         Mockito.`when`(movieRepository.getMovies()).thenReturn(Observable.just(emptyList()))
         val getPopularMovies = GetPopularMovies(TestTransformer(), movieRepository)
-        getPopularMovies.observable().test()
+        getPopularMovies.createObservable().test()
                 .assertValue { results -> results.isEmpty() }
                 .assertComplete()
     }
@@ -75,7 +75,7 @@ class UseCasesTests {
         val moviesCache = Mockito.mock(MoviesCache::class.java)
         Mockito.`when`(moviesCache.getAll()).thenReturn(Observable.just(generateMovieEntityList()))
         val getFavoriteMovies = GetFavoriteMovies(TestTransformer(), moviesCache)
-        getFavoriteMovies.observable().test()
+        getFavoriteMovies.createObservable().test()
                 .assertValue { results -> results.size == 5 }
                 .assertComplete()
     }

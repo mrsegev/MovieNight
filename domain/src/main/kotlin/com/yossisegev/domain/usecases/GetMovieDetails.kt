@@ -22,7 +22,7 @@ class GetMovieDetails(
     fun getById(movieId: Int): Observable<Optional<MovieEntity>> {
         val data = HashMap<String, Int>()
         data[PARAM_MOVIE_ENTITY] = movieId
-        return observable(data)
+        return createObservable(data)
     }
 
     override fun createObservable(data: Map<String, Any>?): Observable<Optional<MovieEntity>> {

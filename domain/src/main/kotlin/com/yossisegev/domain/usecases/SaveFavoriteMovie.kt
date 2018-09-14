@@ -34,6 +34,6 @@ class SaveFavoriteMovie(transformer: Transformer<Boolean>,
     fun save(movieEntity: MovieEntity): Observable<Boolean> {
         val data = HashMap<String, MovieEntity>()
         data[PARAM_MOVIE_ENTITY] = movieEntity
-        return observable(data)
+        return createObservable(data)
     }
 }

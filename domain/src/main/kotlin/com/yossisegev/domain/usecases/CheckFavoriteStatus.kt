@@ -29,7 +29,7 @@ class CheckFavoriteStatus(transformer: Transformer<Boolean>,
     fun check(movieId: Int): Observable<Boolean> {
         val data = HashMap<String, Int>()
         data[PARAM_MOVIE_ENTITY] = movieId
-        return observable(data)
+        return createObservable(data)
     }
 
 }

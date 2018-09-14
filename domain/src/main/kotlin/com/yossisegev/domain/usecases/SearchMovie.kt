@@ -20,7 +20,7 @@ class SearchMovie(transformer: Transformer<List<MovieEntity>>,
     fun search(query: String): Observable<List<MovieEntity>> {
         val data = HashMap<String, String>()
         data[PARAM_SEARCH_QUERY] = query
-        return observable(data)
+        return createObservable(data)
     }
 
     override fun createObservable(data: Map<String, Any>?): Observable<List<MovieEntity>> {

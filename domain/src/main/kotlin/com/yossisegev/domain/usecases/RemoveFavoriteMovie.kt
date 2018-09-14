@@ -20,7 +20,7 @@ class RemoveFavoriteMovie(transformer:Transformer<Boolean>,
     fun remove(movieEntity: MovieEntity): Observable<Boolean> {
         val data = HashMap<String, MovieEntity>()
         data[PARAM_MOVIE_ENTITY] = movieEntity
-        return observable(data)
+        return createObservable(data)
     }
 
     override fun createObservable(data: Map<String, Any>?): Observable<Boolean> {
