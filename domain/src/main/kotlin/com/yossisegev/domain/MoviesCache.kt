@@ -3,7 +3,6 @@ package com.yossisegev.domain
 import com.yossisegev.domain.entities.MovieEntity
 import com.yossisegev.domain.entities.Optional
 import io.reactivex.Observable
-import io.reactivex.Single
 
 /**
  * Created by Yossi Segev on 21/01/2018.
