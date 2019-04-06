@@ -3,12 +3,15 @@ package com.yossisegev.movienight.common
 import android.app.Application
 import com.squareup.leakcanary.LeakCanary
 import com.yossisegev.movienight.R
-import com.yossisegev.movienight.di.*
+import com.yossisegev.movienight.di.DaggerMainComponent
+import com.yossisegev.movienight.di.MainComponent
 import com.yossisegev.movienight.di.details.MovieDetailsModule
 import com.yossisegev.movienight.di.details.MovieDetailsSubComponent
 import com.yossisegev.movienight.di.favorites.FavoriteModule
 import com.yossisegev.movienight.di.favorites.FavoritesSubComponent
-import com.yossisegev.movienight.di.modules.*
+import com.yossisegev.movienight.di.modules.AppModule
+import com.yossisegev.movienight.di.modules.DataModule
+import com.yossisegev.movienight.di.modules.NetworkModule
 import com.yossisegev.movienight.di.popular.PopularMoviesModule
 import com.yossisegev.movienight.di.popular.PopularSubComponent
 import com.yossisegev.movienight.di.search.SearchMoviesModule
@@ -19,7 +22,7 @@ import com.yossisegev.movienight.di.search.SearchSubComponent
  */
 class App: Application() {
 
-    lateinit var mainComponent: MainComponent
+    private lateinit var mainComponent: MainComponent
     private var popularMoviesComponent: PopularSubComponent? = null
     private var favoriteMoviesComponent: FavoritesSubComponent? = null
     private var movieDetailsComponent: MovieDetailsSubComponent? = null
