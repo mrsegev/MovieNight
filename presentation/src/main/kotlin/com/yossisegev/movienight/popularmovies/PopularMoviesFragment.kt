@@ -1,12 +1,10 @@
 package com.yossisegev.movienight.popularmovies
 
-import android.app.ActivityOptions
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.util.Pair
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,8 +14,6 @@ import com.yossisegev.movienight.R
 import com.yossisegev.movienight.common.App
 import com.yossisegev.movienight.common.BaseFragment
 import com.yossisegev.movienight.common.ImageLoader
-import com.yossisegev.movienight.details.MovieDetailsActivity
-import com.yossisegev.movienight.entities.Movie
 import kotlinx.android.synthetic.main.fragment_popular_movies.*
 import javax.inject.Inject
 
@@ -69,9 +65,9 @@ class PopularMoviesFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         progressBar = popular_movies_progress
-        popularMoviesAdapter = PopularMoviesAdapter(imageLoader, { movie, view ->
+        popularMoviesAdapter = PopularMoviesAdapter(imageLoader) { movie, view ->
             navigateToMovieDetailsScreen(movie, view)
-        })
+        }
         recyclerView = popular_movies_recyclerview
         recyclerView.layoutManager = GridLayoutManager(activity, 2)
         recyclerView.adapter = popularMoviesAdapter

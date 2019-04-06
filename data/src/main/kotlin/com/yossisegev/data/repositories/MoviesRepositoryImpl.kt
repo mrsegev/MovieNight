@@ -17,12 +17,11 @@ class MoviesRepositoryImpl(private val cachedDataStore: CachedMoviesDataStore,
         return cachedDataStore.isEmpty().flatMap { empty ->
             if (!empty) {
                 return@flatMap cachedDataStore.getMovies()
-            }
-            else {
+            } else {
                 return@flatMap remoteDataStore.getMovies()
-                                              .doOnNext { movies ->
-                                                  cachedDataStore.saveAll(movies)
-                                              }
+                        .doOnNext { movies ->
+                            cachedDataStore.saveAll(movies)
+                        }
             }
         }
     }
