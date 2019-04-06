@@ -7,16 +7,15 @@ import com.yossisegev.domain.usecases.GetUpcomingMovies
 import com.yossisegev.movienight.common.BaseViewModel
 import com.yossisegev.movienight.common.SingleLiveEvent
 import com.yossisegev.movienight.entities.Movie
-import com.yossisegev.movienight.popularmovies.PopularMoviesViewState
 
 class UpcomingMoviesViewModel(private val getUpcomingMovies: GetUpcomingMovies,
                               private val movieEntityMovieMapper: Mapper<MovieEntity, Movie>) : BaseViewModel() {
 
-    var viewState: MutableLiveData<PopularMoviesViewState> = MutableLiveData()
+    var viewState: MutableLiveData<UpcomingMoviesViewState> = MutableLiveData()
     var errorState: SingleLiveEvent<Throwable?> = SingleLiveEvent()
 
     init {
-        viewState.value = PopularMoviesViewState()
+        viewState.value = UpcomingMoviesViewState()
     }
 
     fun getUpcomingMovies() {
