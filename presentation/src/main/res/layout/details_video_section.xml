@@ -13,15 +13,15 @@
         android:src="@drawable/ic_videocam_white_36dp"
         android:tint="@color/grey"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/details_video_section_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_marginEnd="@dimen/generic_margin"
         android:layout_marginStart="@dimen/small_margin"
+        android:layout_marginEnd="@dimen/generic_margin"
         android:fontFamily="@font/roboto_condensed_bold"
         android:text="@string/trailers"
         android:textColor="@color/kinda_black"
@@ -29,7 +29,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/details_video_section_icon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/details_video_section_icon"
-        app:layout_constraintTop_toTopOf="@+id/details_video_section_icon"/>
+        app:layout_constraintTop_toTopOf="@+id/details_video_section_icon" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/details_videos"
@@ -39,7 +39,6 @@
         android:nestedScrollingEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/details_video_section_icon"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/details_video_section_icon" />
 
 </android.support.constraint.ConstraintLayout>

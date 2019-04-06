@@ -1,6 +1,5 @@
 package com.yossisegev.data.repositories
 
-import com.yossisegev.domain.MoviesDataStore
 import com.yossisegev.domain.MoviesRepository
 import com.yossisegev.domain.entities.MovieEntity
 import com.yossisegev.domain.entities.Optional
