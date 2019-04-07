@@ -45,11 +45,10 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
             R.id.action_upcoming -> {
                 supportFragmentManager.beginTransaction()
-                        .replace(R.id.container, UpcomingMoviesFragment(), "popular")
+                        .replace(R.id.container, UpcomingMoviesFragment(), "upcoming")
                         .commitNow()
                 title = getString(R.string.upcoming)
             }
-
 
             R.id.action_favorites -> {
                 supportFragmentManager.beginTransaction()

@@ -3,7 +3,6 @@ package com.yossisegev.movienight.favorites
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -71,9 +70,9 @@ class FavoriteMoviesFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         progressBar = favorite_movies_progress
-        favoriteMoviesAdapter = FavoriteMoviesAdapter(imageLoader, { movie, view ->
+        favoriteMoviesAdapter = FavoriteMoviesAdapter(imageLoader) { movie, view ->
             navigateToMovieDetailsScreen(movie, view)
-        })
+        }
         recyclerView = favorite_movies_recyclerview
         emptyMessage = favorite_movies_empty_message
         recyclerView.layoutManager = LinearLayoutManager(activity)
