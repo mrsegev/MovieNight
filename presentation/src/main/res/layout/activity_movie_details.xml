@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <android.support.design.widget.CoordinatorLayout
-    android:id="@+id/details_root_view"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/details_root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
@@ -27,8 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="210dp"
                 android:scaleType="centerCrop"
-                app:layout_collapseMode="parallax"
-                />
+                app:layout_collapseMode="parallax" />
 
             <ImageView
                 android:id="@+id/details_back_button"
@@ -39,8 +38,7 @@
                 android:background="@drawable/circle"
                 android:padding="3dp"
                 android:src="@drawable/ic_arrow_back_white_24dp"
-                app:layout_collapseMode="pin"
-                />
+                app:layout_collapseMode="pin" />
 
         </android.support.design.widget.CollapsingToolbarLayout>
 
@@ -67,23 +65,22 @@
                 android:elevation="8dp"
                 android:scaleType="centerCrop"
                 android:transitionName="@string/transition_poster"
-                tools:src="@mipmap/ic_launcher"
-                />
+                tools:src="@mipmap/ic_launcher" />
 
             <TextView
                 android:id="@+id/details_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignTop="@id/details_poster"
-                android:layout_marginEnd="@dimen/generic_margin"
                 android:layout_marginStart="@dimen/generic_margin"
+                android:layout_marginEnd="@dimen/generic_margin"
                 android:layout_toEndOf="@id/details_poster"
                 android:fontFamily="@font/roboto_condensed_bold"
                 android:textColor="@color/black"
                 android:textSize="@dimen/headline_text_size"
                 android:visibility="gone"
                 tools:text="The movie title goes here"
-                tools:visibility="visible"/>
+                tools:visibility="visible" />
 
             <LinearLayout
                 android:id="@+id/details_release_date_layout"
@@ -105,7 +102,7 @@
                     android:fontFamily="@font/roboto"
                     android:textColor="@color/details_text"
                     android:textSize="@dimen/small_text_size"
-                    tools:text="2012-2-01"/>
+                    tools:text="2012-2-01" />
 
             </LinearLayout>
 
@@ -114,9 +111,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/details_release_date_layout"
-                android:layout_marginEnd="@dimen/generic_margin"
                 android:layout_marginStart="@dimen/generic_margin"
                 android:layout_marginTop="4dp"
+                android:layout_marginEnd="@dimen/generic_margin"
                 android:layout_toEndOf="@id/details_poster"
                 android:orientation="horizontal"
                 android:visibility="gone"
@@ -126,7 +123,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:src="@drawable/ic_star_rate_white_18dp"
-                    android:tint="@color/grey"/>
+                    android:tint="@color/grey" />
 
                 <TextView
                     android:id="@+id/details_score"
@@ -137,7 +134,7 @@
                     android:gravity="center_vertical"
                     android:textColor="@color/colorPrimary"
                     android:textSize="@dimen/headline_text_size"
-                    tools:text="10.0"/>
+                    tools:text="10.0" />
             </LinearLayout>
 
             <co.lujun.androidtagview.TagContainerLayout
@@ -145,9 +142,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/details_score_layout"
-                android:layout_marginEnd="@dimen/generic_margin"
                 android:layout_marginStart="@dimen/generic_margin"
                 android:layout_marginTop="4dp"
+                android:layout_marginEnd="@dimen/generic_margin"
                 android:layout_toEndOf="@id/details_poster"
                 android:visibility="gone"
                 app:container_background_color="@android:color/transparent"
@@ -162,7 +159,7 @@
                 app:tag_text_size="13sp"
                 app:tag_theme="none"
                 app:vertical_interval="10dp"
-                tools:visibility="visible"/>
+                tools:visibility="visible" />
 
             <include
                 android:id="@+id/details_overview_section"
@@ -170,11 +167,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/details_poster"
-                android:layout_marginEnd="@dimen/generic_margin"
                 android:layout_marginStart="@dimen/generic_margin"
                 android:layout_marginTop="@dimen/sections_margin"
+                android:layout_marginEnd="@dimen/generic_margin"
                 android:visibility="gone"
-                tools:visibility="visible"/>
+                tools:visibility="visible" />
 
             <include
                 android:id="@+id/details_video_section"
@@ -182,12 +179,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/details_overview_section"
-                android:layout_marginBottom="@dimen/generic_margin"
-                android:layout_marginEnd="@dimen/generic_margin"
                 android:layout_marginStart="@dimen/generic_margin"
                 android:layout_marginTop="@dimen/sections_margin"
+                android:layout_marginEnd="@dimen/generic_margin"
+                android:layout_marginBottom="@dimen/generic_margin"
                 android:visibility="gone"
-                tools:visibility="visible"/>
+                tools:visibility="visible" />
 
         </RelativeLayout>
 
@@ -201,6 +198,6 @@
         android:layout_margin="@dimen/generic_margin"
         android:src="@drawable/ic_favorite_border_white_36dp"
         android:visibility="gone"
-        tools:visibility="visible"/>
+        tools:visibility="visible" />
 
 </android.support.design.widget.CoordinatorLayout>

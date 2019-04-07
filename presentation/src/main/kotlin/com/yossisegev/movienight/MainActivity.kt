@@ -2,14 +2,12 @@ package com.yossisegev.movienight
 
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
-
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
-import android.view.SearchEvent
-import com.yossisegev.movienight.common.App
 import com.yossisegev.movienight.favorites.FavoriteMoviesFragment
 import com.yossisegev.movienight.popularmovies.PopularMoviesFragment
 import com.yossisegev.movienight.search.SearchFragment
+import com.yossisegev.movienight.upcomingmovies.UpcomingMoviesFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
@@ -43,6 +41,13 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                         .replace(R.id.container, PopularMoviesFragment(), "popular")
                         .commitNow()
                 title = getString(R.string.popular)
+            }
+
+            R.id.action_upcoming -> {
+                supportFragmentManager.beginTransaction()
+                        .replace(R.id.container, UpcomingMoviesFragment(), "upcoming")
+                        .commitNow()
+                title = getString(R.string.upcoming)
             }
 
             R.id.action_favorites -> {

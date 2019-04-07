@@ -1,6 +1,5 @@
 package com.yossisegev.movienight.details
 
-import com.yossisegev.domain.entities.Genre
 import com.yossisegev.movienight.entities.Video
 
 /**

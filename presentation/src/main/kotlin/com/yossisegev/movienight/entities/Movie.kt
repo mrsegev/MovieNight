@@ -1,7 +1,5 @@
 package com.yossisegev.movienight.entities
 
-import android.graphics.Movie
-
 /**
  * Created by Yossi Segev on 14/11/2017.
  */

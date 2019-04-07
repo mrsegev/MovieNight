@@ -1,4 +1,4 @@
-package com.yossisegev.movienight.popularmovies
+package com.yossisegev.movienight.upcomingmovies
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
@@ -14,30 +14,27 @@ import com.yossisegev.movienight.R
 import com.yossisegev.movienight.common.App
 import com.yossisegev.movienight.common.BaseFragment
 import com.yossisegev.movienight.common.ImageLoader
-import kotlinx.android.synthetic.main.fragment_popular_movies.*
+import kotlinx.android.synthetic.main.fragment_upcoming_movies.*
 import javax.inject.Inject
 
-/**
- * Created by Yossi Segev on 11/11/2017.
- */
-class PopularMoviesFragment : BaseFragment() {
+class UpcomingMoviesFragment : BaseFragment() {
 
     @Inject
-    lateinit var factory: PopularMoviesVMFactory
+    lateinit var factory: UpcomingMoviesVMFactory
     @Inject
     lateinit var imageLoader: ImageLoader
-    private lateinit var viewModel: PopularMoviesViewModel
+    private lateinit var viewModel: UpcomingMoviesViewModel
     private lateinit var recyclerView: RecyclerView
     private lateinit var progressBar: ProgressBar
-    private lateinit var popularMoviesAdapter: PopularMoviesAdapter
+    private lateinit var adapter: UpcomingMoviesAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        (activity?.application as App).createPopularComponent().inject(this)
-        viewModel = ViewModelProviders.of(this, factory).get(PopularMoviesViewModel::class.java)
+        (activity?.application as App).createUpcomingComponent().inject(this)
+        viewModel = ViewModelProviders.of(this, factory).get(UpcomingMoviesViewModel::class.java)
 
         if (savedInstanceState == null) {
-            viewModel.getPopularMovies()
+            viewModel.getUpcomingMovies()
         }
     }
 
@@ -46,6 +43,7 @@ class PopularMoviesFragment : BaseFragment() {
         viewModel.viewState.observe(this, Observer {
             if (it != null) handleViewState(it)
         })
+
         viewModel.errorState.observe(this, Observer { throwable ->
             throwable?.let {
                 Toast.makeText(activity, throwable.message, Toast.LENGTH_LONG).show()
@@ -53,28 +51,28 @@ class PopularMoviesFragment : BaseFragment() {
         })
     }
 
-    private fun handleViewState(state: PopularMoviesViewState) {
+    private fun handleViewState(state: UpcomingMoviesViewState) {
         progressBar.visibility = if (state.showLoading) View.VISIBLE else View.GONE
-        state.movies?.let { popularMoviesAdapter.addMovies(it) }
+        state.movies?.let { adapter.addMovies(it) }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return layoutInflater.inflate(R.layout.fragment_popular_movies, container, false)
+        return layoutInflater.inflate(R.layout.fragment_upcoming_movies, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        progressBar = popular_movies_progress
-        popularMoviesAdapter = PopularMoviesAdapter(imageLoader) { movie, view ->
+        progressBar = upcoming_movies_progress
+        adapter = UpcomingMoviesAdapter(imageLoader) { movie, view ->
             navigateToMovieDetailsScreen(movie, view)
         }
-        recyclerView = popular_movies_recyclerview
+        recyclerView = upcoming_movies_recyclerview
         recyclerView.layoutManager = GridLayoutManager(activity, 2)
-        recyclerView.adapter = popularMoviesAdapter
+        recyclerView.adapter = adapter
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        (activity?.application as App).releasePopularComponent()
+        (activity?.application as App).releaseUpcomingComponent()
     }
 }

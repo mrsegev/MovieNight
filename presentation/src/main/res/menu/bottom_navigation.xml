@@ -1,20 +1,21 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/action_popular"
-        android:title="@string/popular"
         android:icon="@drawable/ic_whatshot_white_36dp"
-        />
+        android:title="@string/popular" />
 
+    <item
+        android:id="@+id/action_upcoming"
+        android:icon="@drawable/ic_upcoming"
+        android:title="@string/upcoming" />
 
     <item
         android:id="@+id/action_favorites"
-        android:title="@string/my_favorites"
         android:icon="@drawable/ic_favorite_border_white_36dp"
-        />
+        android:title="@string/my_favorites" />
 
     <item
         android:id="@+id/action_search"
-        android:title="@string/search"
         android:icon="@drawable/ic_search_white_36dp"
-        />
+        android:title="@string/search" />
 </menu>

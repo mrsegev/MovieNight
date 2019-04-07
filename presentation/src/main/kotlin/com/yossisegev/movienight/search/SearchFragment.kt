@@ -4,7 +4,6 @@ import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
 import android.os.Bundle
-import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.text.Editable
@@ -116,10 +115,10 @@ class SearchFragment : BaseFragment(), TextWatcher {
         searchEditText.addTextChangedListener(this)
         progressBar = search_movies_progress
         noResultsMessage = search_movies_no_results_message
-        searchResultsAdapter = SearchResultsAdapter(imageLoader, { movie, movieView ->
+        searchResultsAdapter = SearchResultsAdapter(imageLoader) { movie, movieView ->
             showSoftKeyboard(false)
             navigateToMovieDetailsScreen(movie, movieView)
-        })
+        }
         recyclerView = search_movies_recyclerview
         recyclerView.layoutManager = LinearLayoutManager(activity)
         recyclerView.adapter = searchResultsAdapter

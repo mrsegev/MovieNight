@@ -81,7 +81,6 @@ class MovieEntityMovieMapper @Inject constructor() : Mapper<MovieEntity, Movie>(
             details.reviews = reviews
         }
 
-
         return movie
     }
 }

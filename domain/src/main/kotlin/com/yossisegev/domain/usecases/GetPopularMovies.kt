@@ -1,12 +1,9 @@
 package com.yossisegev.domain.usecases
 
-import com.yossisegev.domain.MoviesCache
 import com.yossisegev.domain.entities.MovieEntity
-import com.yossisegev.domain.MoviesDataStore
 import com.yossisegev.domain.MoviesRepository
 import com.yossisegev.domain.common.Transformer
 import io.reactivex.Observable
-import io.reactivex.ObservableTransformer
 
 /**
  * Created by Yossi Segev on 11/11/2017.

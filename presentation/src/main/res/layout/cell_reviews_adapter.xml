@@ -1,25 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
 
     <TextView
         android:id="@+id/reviews_adapter_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="@dimen/generic_margin"
         android:layout_marginTop="@dimen/generic_margin"
+        android:layout_marginEnd="@dimen/generic_margin"
+        android:layout_marginBottom="8dp"
         android:layout_toStartOf="@id/video_adapter_icon"
         android:ellipsize="end"
         android:maxLines="3"
         android:textColor="@color/kinda_black"
         android:textSize="@dimen/general_text_size"
         tools:height="100dp"
-        tools:text="Video name"/>
+        tools:text="Video name" />
 
 
     <TextView
@@ -27,6 +28,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/reviews_adapter_content"
-        tools:text="Author name"/>
+        tools:text="Author name" />
 
 </RelativeLayout>
