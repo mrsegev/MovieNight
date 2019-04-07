@@ -6,6 +6,7 @@
     <string name="release_date_template">Released: %s</string>
     <string name="my_favorites">My Favorites</string>
     <string name="popular">Popular</string>
+    <string name="upcoming">Upcoming</string>
     <string name="trailers">Trailers</string>
     <string name="overview">Overview</string>
     <string name="reviews">Reviews</string>
