@@ -33,7 +33,7 @@ class PopularMoviesFragment : BaseFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        (activity?.application as App).createPopularComponenet().inject(this)
+        (activity?.application as App).createPopularComponent().inject(this)
         viewModel = ViewModelProviders.of(this, factory).get(PopularMoviesViewModel::class.java)
 
         if (savedInstanceState == null) {
