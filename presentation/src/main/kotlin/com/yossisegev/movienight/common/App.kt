@@ -17,7 +17,7 @@ import com.yossisegev.movienight.di.search.SearchSubComponent
 /**
  * Created by Yossi Segev on 11/11/2017.
  */
-class App: Application() {
+class App : Application() {
 
     lateinit var mainComponent: MainComponent
     private var popularMoviesComponent: PopularSubComponent? = null
@@ -38,25 +38,27 @@ class App: Application() {
 
     private fun initDependencies() {
         mainComponent = DaggerMainComponent.builder()
-                .appModule(AppModule(applicationContext))
-                .networkModule(NetworkModule(getString(R.string.api_base_url), getString(R.string.api_key)))
-                .dataModule(DataModule())
-                .build()
+            .appModule(AppModule(applicationContext))
+            .networkModule(NetworkModule(getString(R.string.api_base_url), getString(R.string.api_key)))
+            .dataModule(DataModule())
+            .build()
 
     }
 
-    fun createPopularComponenet(): PopularSubComponent {
+    fun createPopularComponent(): PopularSubComponent {
         popularMoviesComponent = mainComponent.plus(PopularMoviesModule())
         return popularMoviesComponent!!
     }
+
     fun releasePopularComponent() {
         popularMoviesComponent = null
     }
 
-    fun createFavoritesComponent() : FavoritesSubComponent {
+    fun createFavoritesComponent(): FavoritesSubComponent {
         favoriteMoviesComponent = mainComponent.plus(FavoriteModule())
         return favoriteMoviesComponent!!
     }
+
     fun releaseFavoritesComponent() {
         favoriteMoviesComponent = null
     }
@@ -65,6 +67,7 @@ class App: Application() {
         movieDetailsComponent = mainComponent.plus(MovieDetailsModule())
         return movieDetailsComponent!!
     }
+
     fun releaseDetailsComponent() {
         movieDetailsComponent = null
     }
@@ -73,6 +76,7 @@ class App: Application() {
         searchMoviesComponent = mainComponent.plus(SearchMoviesModule())
         return searchMoviesComponent!!
     }
+
     fun releaseSearchComponent() {
         searchMoviesComponent = null
     }

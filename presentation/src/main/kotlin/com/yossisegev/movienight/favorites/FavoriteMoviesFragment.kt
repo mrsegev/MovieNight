@@ -71,9 +71,9 @@ class FavoriteMoviesFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         progressBar = favorite_movies_progress
-        favoriteMoviesAdapter = FavoriteMoviesAdapter(imageLoader, { movie, view ->
+        favoriteMoviesAdapter = FavoriteMoviesAdapter(imageLoader) { movie, view ->
             navigateToMovieDetailsScreen(movie, view)
-        })
+        }
         recyclerView = favorite_movies_recyclerview
         emptyMessage = favorite_movies_empty_message
         recyclerView.layoutManager = LinearLayoutManager(activity)

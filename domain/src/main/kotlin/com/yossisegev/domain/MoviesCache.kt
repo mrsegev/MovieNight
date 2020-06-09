@@ -9,7 +9,6 @@ import io.reactivex.Single
  * Created by Yossi Segev on 21/01/2018.
  */
 interface MoviesCache {
-
     fun clear()
     fun save(movieEntity: MovieEntity)
     fun remove(movieEntity: MovieEntity)

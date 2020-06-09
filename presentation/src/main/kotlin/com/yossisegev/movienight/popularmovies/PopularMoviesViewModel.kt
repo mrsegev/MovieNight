@@ -14,7 +14,7 @@ import com.yossisegev.movienight.entities.Movie
 
 class PopularMoviesViewModel(private val getPopularMovies: GetPopularMovies,
                              private val movieEntityMovieMapper: Mapper<MovieEntity, Movie>) :
-        BaseViewModel() {
+    BaseViewModel() {
 
     var viewState: MutableLiveData<PopularMoviesViewState> = MutableLiveData()
     var errorState: SingleLiveEvent<Throwable?> = SingleLiveEvent()
@@ -25,17 +25,17 @@ class PopularMoviesViewModel(private val getPopularMovies: GetPopularMovies,
 
     fun getPopularMovies() {
         addDisposable(getPopularMovies.observable()
-                .flatMap { movieEntityMovieMapper.observable(it) }
-                .subscribe({ movies ->
-                    viewState.value?.let {
-                        val newState = this.viewState.value?.copy(showLoading = false, movies = movies)
-                        this.viewState.value = newState
-                        this.errorState.value = null
-                    }
+            .flatMap { movieEntityMovieMapper.observable(it) }
+            .subscribe({ movies ->
+                viewState.value?.let {
+                    val newState = this.viewState.value?.copy(showLoading = false, movies = movies)
+                    this.viewState.value = newState
+                    this.errorState.value = null
+                }
 
-                }, {
-                    viewState.value = viewState.value?.copy(showLoading = false)
-                    errorState.value = it
-                }))
+            }, {
+                viewState.value = viewState.value?.copy(showLoading = false)
+                errorState.value = it
+            }))
     }
 }

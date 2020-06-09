@@ -34,55 +34,55 @@ class MovieDetailsViewModel(private val getMovieDetails: GetMovieDetails,
 
     fun getMovieDetails() {
         addDisposable(
-                getMovieDetails.getById(movieId)
-                        .map {
-                            it.value?.let {
-                                movieEntity = it
-                                mapper.mapFrom(movieEntity)
-                            } ?: run {
-                                throw Throwable("Something went wrong :(")
-                            }
-                        }
-                        .zipWith(checkFavoriteStatus.check(movieId), BiFunction<Movie, Boolean, Movie> { movie, isFavorite ->
-                            movie.isFavorite = isFavorite
-                            return@BiFunction movie
-                        })
-                        .subscribe(
-                                { onMovieDetailsReceived(it) },
-                                { errorState.value = it }
-                        )
+            getMovieDetails.getById(movieId)
+                .map {
+                    it.value?.let {
+                        movieEntity = it
+                        mapper.mapFrom(movieEntity)
+                    } ?: run {
+                        throw Throwable("Something went wrong :(")
+                    }
+                }
+                .zipWith(checkFavoriteStatus.check(movieId), BiFunction<Movie, Boolean, Movie> { movie, isFavorite ->
+                    movie.isFavorite = isFavorite
+                    return@BiFunction movie
+                })
+                .subscribe(
+                    { onMovieDetailsReceived(it) },
+                    { errorState.value = it }
+                )
         )
     }
 
     fun favoriteButtonClicked() {
-        addDisposable(checkFavoriteStatus.check(movieId).flatMap {
-            when (it) {
-                true -> {
-                    removeFavorite(movieEntity)
+        addDisposable(checkFavoriteStatus.check(movieId)
+            .flatMap {
+                when (it) {
+                    true -> {
+                        removeFavorite(movieEntity)
+                    }
+                    false -> {
+                        saveFavorite(movieEntity)
+                    }
                 }
-                false -> {
-                    saveFavorite(movieEntity)
-                }
-            }
-        }.subscribe({ isFavorite ->
-                    favoriteState.value = isFavorite
-                }, {
-                    errorState.value = it
-                }))
+            }.subscribe({ isFavorite ->
+                favoriteState.value = isFavorite
+            }, {
+                errorState.value = it
+            }))
     }
 
     private fun onMovieDetailsReceived(movie: Movie) {
-
         val newViewState = viewState.value?.copy(
-                isLoading = false,
-                title = movie.originalTitle,
-                videos = movie.details?.videos,
-                homepage = movie.details?.homepage,
-                overview = movie.details?.overview,
-                releaseDate = movie.releaseDate,
-                votesAverage = movie.voteAverage,
-                backdropUrl = movie.backdropPath,
-                genres = movie.details?.genres)
+            isLoading = false,
+            title = movie.originalTitle,
+            videos = movie.details?.videos,
+            homepage = movie.details?.homepage,
+            overview = movie.details?.overview,
+            releaseDate = movie.releaseDate,
+            votesAverage = movie.voteAverage,
+            backdropUrl = movie.backdropPath,
+            genres = movie.details?.genres)
 
         viewState.value = newViewState
         favoriteState.value = movie.isFavorite

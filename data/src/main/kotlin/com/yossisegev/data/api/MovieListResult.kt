@@ -9,6 +9,7 @@ import com.yossisegev.data.entities.MovieData
 class MovieListResult {
 
     var page: Int = 0
+
     @SerializedName("results")
     lateinit var movies: List<MovieData>
 }

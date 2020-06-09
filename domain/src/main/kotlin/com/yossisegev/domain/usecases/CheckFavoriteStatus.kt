@@ -23,7 +23,7 @@ class CheckFavoriteStatus(transformer: Transformer<Boolean>,
             return moviesCache.get(it as Int).flatMap { optionalMovieEntity ->
                 return@flatMap Observable.just(optionalMovieEntity.hasValue())
             }
-        } ?: return Observable.error({ IllegalArgumentException("MovieId must be provided.") })
+        } ?: return Observable.error { IllegalArgumentException("MovieId must be provided.") }
     }
 
     fun check(movieId: Int): Observable<Boolean> {

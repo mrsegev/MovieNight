@@ -10,8 +10,8 @@ import java.lang.IllegalArgumentException
 /**
  * Created by Yossi Segev on 21/01/2018.
  */
-class RemoveFavoriteMovie(transformer:Transformer<Boolean>,
-                          private val moviesCache: MoviesCache): UseCase<Boolean>(transformer) {
+class RemoveFavoriteMovie(transformer: Transformer<Boolean>,
+                          private val moviesCache: MoviesCache) : UseCase<Boolean>(transformer) {
 
     companion object {
         private const val PARAM_MOVIE_ENTITY = "param:movieEntity"
@@ -33,7 +33,7 @@ class RemoveFavoriteMovie(transformer:Transformer<Boolean>,
                 moviesCache.remove(entity)
                 return@fromCallable false
             }
-        }?: return Observable.error({ IllegalArgumentException("MovieEntity must be provided.") })
+        } ?: return Observable.error { IllegalArgumentException("MovieEntity must be provided.") }
     }
 
 }

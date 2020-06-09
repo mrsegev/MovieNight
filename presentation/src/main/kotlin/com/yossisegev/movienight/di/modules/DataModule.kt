@@ -27,9 +27,9 @@ class DataModule {
     @Provides
     fun provideRoomDatabase(context: Context): MoviesDatabase {
         return Room.databaseBuilder(
-                context,
-                MoviesDatabase::class.java,
-                "movies_db").build()
+            context,
+            MoviesDatabase::class.java,
+            "movies_db").build()
     }
 
     @Provides

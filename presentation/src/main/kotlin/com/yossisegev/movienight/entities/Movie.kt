@@ -5,7 +5,7 @@ import android.graphics.Movie
 /**
  * Created by Yossi Segev on 14/11/2017.
  */
-data class Movie (
+data class Movie(
 
     var id: Int = 0,
     var voteCount: Int = 0,
