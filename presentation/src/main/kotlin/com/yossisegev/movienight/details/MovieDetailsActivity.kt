@@ -32,6 +32,7 @@ class MovieDetailsActivity : AppCompatActivity() {
 
     @Inject
     lateinit var factory: MovieDetailsVMFactory
+
     @Inject
     lateinit var imageLoader: ImageLoader
 
@@ -160,10 +161,10 @@ class MovieDetailsActivity : AppCompatActivity() {
         if (favorite == null) return
         favoriteButton.visibility = View.VISIBLE
         favoriteButton.setImageDrawable(
-                if (favorite)
-                    ContextCompat.getDrawable(this, R.drawable.ic_favorite_white_36dp)
-                else
-                    ContextCompat.getDrawable(this, R.drawable.ic_favorite_border_white_36dp))
+            if (favorite)
+                ContextCompat.getDrawable(this, R.drawable.ic_favorite_white_36dp)
+            else
+                ContextCompat.getDrawable(this, R.drawable.ic_favorite_border_white_36dp))
     }
 
     override fun onDestroy() {

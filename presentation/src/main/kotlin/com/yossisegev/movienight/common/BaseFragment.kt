@@ -11,7 +11,7 @@ import com.yossisegev.movienight.entities.Movie
 /**
  * Created by Yossi Segev on 19/02/2018.
  */
-open class BaseFragment: Fragment() {
+open class BaseFragment : Fragment() {
 
     protected fun navigateToMovieDetailsScreen(movie: Movie, view: View) {
         var activityOptions: ActivityOptions? = null
@@ -22,9 +22,9 @@ open class BaseFragment: Fragment() {
             activityOptions = ActivityOptions.makeSceneTransitionAnimation(activity, posterSharedElement)
         }
         startActivity(MovieDetailsActivity.newIntent(
-                context!!,
-                movie.id,
-                movie.posterPath), activityOptions?.toBundle())
+            context!!,
+            movie.id,
+            movie.posterPath), activityOptions?.toBundle())
 
         activity?.overridePendingTransition(0, 0)
     }

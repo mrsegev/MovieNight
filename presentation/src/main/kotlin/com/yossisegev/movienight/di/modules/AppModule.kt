@@ -13,7 +13,7 @@ import javax.inject.Singleton
  */
 
 @Module
-class AppModule constructor(context: Context){
+class AppModule constructor(context: Context) {
 
     private val appContext = context.applicationContext
 
@@ -25,7 +25,7 @@ class AppModule constructor(context: Context){
 
     @Singleton
     @Provides
-    fun provideImageLoader(context: Context) : ImageLoader {
+    fun provideImageLoader(context: Context): ImageLoader {
         return PicassoImageLoader(Picasso.with(context))
     }
 }

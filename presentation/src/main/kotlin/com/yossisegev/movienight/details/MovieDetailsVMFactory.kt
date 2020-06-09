@@ -14,22 +14,22 @@ import com.yossisegev.movienight.entities.Movie
  * Created by Yossi Segev on 07/01/2018.
  */
 class MovieDetailsVMFactory(
-        private val getMovieDetails: GetMovieDetails,
-        private val saveFavoriteMovie: SaveFavoriteMovie,
-        private val removeFavoriteMovie: RemoveFavoriteMovie,
-        private val checkFavoriteStatus: CheckFavoriteStatus,
-        private val mapper: Mapper<MovieEntity, Movie>) : ViewModelProvider.Factory {
+    private val getMovieDetails: GetMovieDetails,
+    private val saveFavoriteMovie: SaveFavoriteMovie,
+    private val removeFavoriteMovie: RemoveFavoriteMovie,
+    private val checkFavoriteStatus: CheckFavoriteStatus,
+    private val mapper: Mapper<MovieEntity, Movie>) : ViewModelProvider.Factory {
 
     var movieId: Int = -1
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         return MovieDetailsViewModel(
-                getMovieDetails,
-                saveFavoriteMovie,
-                removeFavoriteMovie,
-                checkFavoriteStatus,
-                mapper,
-                movieId) as T //TODO: solve casting issue
+            getMovieDetails,
+            saveFavoriteMovie,
+            removeFavoriteMovie,
+            checkFavoriteStatus,
+            mapper,
+            movieId) as T //TODO: solve casting issue
     }
 
 }

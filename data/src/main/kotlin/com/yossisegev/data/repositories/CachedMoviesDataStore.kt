@@ -9,7 +9,7 @@ import io.reactivex.Observable
 /**
  * Created by Yossi Segev on 22/01/2018.
  */
-class CachedMoviesDataStore(private val moviesCache: MoviesCache): MoviesDataStore {
+class CachedMoviesDataStore(private val moviesCache: MoviesCache) : MoviesDataStore {
 
     override fun search(query: String): Observable<List<MovieEntity>> {
         return moviesCache.search(query)

@@ -13,5 +13,4 @@ abstract class UseCase<T>(private val transformer: Transformer<T>) {
     fun observable(withData: Map<String, Any>? = null): Observable<T> {
         return createObservable(withData).compose(transformer)
     }
-
 }

@@ -11,14 +11,13 @@ import java.lang.IllegalArgumentException
  * Created by Yossi Segev on 21/01/2018.
  */
 class SaveFavoriteMovie(transformer: Transformer<Boolean>,
-                        private val moviesCache: MoviesCache): UseCase<Boolean>(transformer) {
+                        private val moviesCache: MoviesCache) : UseCase<Boolean>(transformer) {
 
     companion object {
         private const val PARAM_MOVIE_ENTITY = "param:movieEntity"
     }
 
     override fun createObservable(data: Map<String, Any>?): Observable<Boolean> {
-
         val movieEntity = data?.get(PARAM_MOVIE_ENTITY)
 
         movieEntity?.let {
@@ -27,7 +26,7 @@ class SaveFavoriteMovie(transformer: Transformer<Boolean>,
                 moviesCache.save(entity)
                 return@fromCallable true
             }
-        }?: return Observable.error({ IllegalArgumentException("MovieEntity must be provided.") })
+        } ?: return Observable.error { IllegalArgumentException("MovieEntity must be provided.") }
 
     }
 

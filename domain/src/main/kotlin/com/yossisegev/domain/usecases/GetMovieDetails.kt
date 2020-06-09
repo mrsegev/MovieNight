@@ -12,8 +12,8 @@ import java.lang.IllegalArgumentException
  * Created by Yossi Segev on 11/11/2017.
  */
 class GetMovieDetails(
-        transformer: Transformer<Optional<MovieEntity>>,
-        private val moviesRepository: MoviesRepository) : UseCase<Optional<MovieEntity>>(transformer) {
+    transformer: Transformer<Optional<MovieEntity>>,
+    private val moviesRepository: MoviesRepository) : UseCase<Optional<MovieEntity>>(transformer) {
 
     companion object {
         private const val PARAM_MOVIE_ENTITY = "param:movieEntity"
@@ -29,6 +29,6 @@ class GetMovieDetails(
         val movieId = data?.get(PARAM_MOVIE_ENTITY)
         movieId?.let {
             return moviesRepository.getMovie(it as Int)
-        } ?: return Observable.error({ IllegalArgumentException("MovieId must be provided.") })
+        } ?: return Observable.error { IllegalArgumentException("MovieId must be provided.") }
     }
 }

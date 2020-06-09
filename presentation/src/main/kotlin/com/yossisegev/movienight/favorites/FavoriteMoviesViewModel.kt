@@ -23,21 +23,20 @@ class FavoriteMoviesViewModel(private val getFavoriteMovies: GetFavoriteMovies,
     }
 
     fun getFavorites() {
-        getFavoriteMovies.observable()
-                .flatMap { movieEntityMovieMapper.observable(it) }
-                .subscribe({ movies ->
-                    val newViewState = viewState.value?.copy(
-                            isEmpty = movies.isEmpty(),
-                            isLoading = false,
-                            movies = movies)
-                    viewState.value = newViewState
-                    errorState.value = null
+        addDisposable(getFavoriteMovies.observable()
+            .flatMap { movieEntityMovieMapper.observable(it) }
+            .subscribe({ movies ->
+                val newViewState = viewState.value?.copy(
+                    isEmpty = movies.isEmpty(),
+                    isLoading = false,
+                    movies = movies)
+                viewState.value = newViewState
+                errorState.value = null
 
-                }, {
-                    viewState.value = viewState.value?.copy(isLoading = false, isEmpty = false)
-                    errorState.value = it
-
-                })
+            }, {
+                viewState.value = viewState.value?.copy(isLoading = false, isEmpty = false)
+                errorState.value = it
+            }))
     }
 
 }
